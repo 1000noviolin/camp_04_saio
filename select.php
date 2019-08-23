@@ -241,8 +241,8 @@ if($status==false){
 </ul>
 </nav>
 <!-- タブメニューend -->
-<div class="box21" id="tab1">
-    <p class="box">TODAY'S STORY</p>
+<div class="box21">
+    <p id="animation">TODAY'S STORY</p>
     <p class="about">世界各国の偉人の名言と、その言葉にまつわるエピソードをご紹介！<br>
     参考：阿刀田高 (1984)『ユーモア人間一日一言』ワニ文庫.</p>
 <!-- Main[Start] $view-->
