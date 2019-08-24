@@ -1,9 +1,9 @@
-$(function() {
+$(function () {
   // ※追加1 まずjsで全部のタブを表示させておく（読み込んで実行されたら）
   $(".box21 ul").show();
 
   // ①タブをクリックしたら発動
-  $(".tab li").click(function() {
+  $(".tab li").click(function () {
     // ※追加2 クリックされた瞬間、最初に全部表示させていたので一旦非表示にする
     $(".box21 ul").hide();
 
@@ -30,7 +30,7 @@ $(function() {
 });
 
 //  ※タブを固定
-$(function() {
+$(function () {
   var $win = $(window),
     $main = $("main"),
     $nav = $("nav"),
@@ -38,7 +38,7 @@ $(function() {
     navPos = $nav.offset().top,
     fixedClass = "is-fixed";
 
-  $win.on("load scroll", function() {
+  $win.on("load scroll", function () {
     var value = $(this).scrollTop();
     if (value > navPos) {
       $nav.addClass(fixedClass);
@@ -51,11 +51,11 @@ $(function() {
 });
 
 //  ※戻るボタン
-$(function() {
+$(function () {
   var topBtn = $("#page-top");
   topBtn.hide();
   //スクロールが500に達したらボタン表示
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(this).scrollTop() > 500) {
       topBtn.fadeIn();
     } else {
@@ -63,7 +63,7 @@ $(function() {
     }
   });
   //スルスルっとスクロールでトップへもどる
-  topBtn.click(function() {
+  topBtn.click(function () {
     $("body,html").animate(
       {
         scrollTop: 0
@@ -75,14 +75,16 @@ $(function() {
 });
 
 // ※タイトルを動かす
-$("#animation").css("visibility", "hidden");
-$(window).scroll(function() {
-  var windowHeight = $(window).height(),
-    topWindow = $(window).scrollTop();
-  $("#animation").each(function() {
-    var targetPosition = $(this).offset().top;
-    if (topWindow > targetPosition - windowHeight + 100) {
-      $(this).addClass("fadeInDown");
-    }
+$(function () {
+  $(window).ready(function () {
+    $('.fadein').each(function () {
+      var targetElement = $(this).offset().top;
+      var scroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (scroll > targetElement - windowHeight + 200) {
+        $(this).css('opacity', '1');
+        $(this).css('transform', 'translateY(0)');
+      }
+    });
   });
 });
